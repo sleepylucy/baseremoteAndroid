@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+            android:id="@+id/pssHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:text="@string/header_pss"
+            style="@style/TextAppearance.AppCompat.Headline"
+    />
+
+    <ProgressBar
+            android:id="@+id/pssProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pssHeader"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:progress="50"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+    />
+
+    <TextView
+            android:id="@+id/pssPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pssProgressBar"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="4dp"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="50%"
+            tools:ignore="HardcodedText"
+    />
+
+    <TextView
+            android:id="@+id/pssChangeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/pssPercentage"
+            app:layout_constraintBottom_toBottomOf="@id/pssPercentage"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="2dp"
+            android:text="+1500 EU/t"
+            android:textSize="14sp"
+            android:textColor="@color/green"
+            tools:ignore="HardcodedText"
+    />
+
+    <TextView
+            android:id="@+id/pssMaintenanceIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/pssPercentage"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:text="@string/pss_no_issues"
+            android:textColor="@color/green"
+    />
+
+    <TextView
+            android:id="@+id/pssEUdisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/pssPercentage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:textSize="12sp"
+            android:text="5.000.000 / 10.000.000 EU"
+            tools:ignore="HardcodedText"/>
+
+    <TextView
+            android:id="@+id/meHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/pssEUdisplay"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="54dp"
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:text="@string/header_me"
+    />
+
+    <TextView
+            android:id="@+id/meInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/meHeader"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:text="Energy Usage: 123 EU/t"
+            tools:ignore="HardcodedText"
+    />
+
+    <Button
+            android:id="@+id/meToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/meInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="4dp"
+            android:text="@string/me_turn_off"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:textColor="@color/red"
+    />
+
+</android.support.constraint.ConstraintLayout>

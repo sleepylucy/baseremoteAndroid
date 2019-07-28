@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BaseRemote</string>
+    <string name="title_overview">Overview</string>
+    <string name="title_meSystem">ME System</string>
+    <string name="header_pss">Power Station</string>
+    <string name="header_me">ME System</string>
+
+    <string name="pss_no_issues">No issues</string>
+    <string name="pss_issues">Has Maintenance Issues</string>
+    <string name="pss_change">%1$s %2$d EU/t</string>
+    <string name="pss_percent">%1$d %%</string>
+    <string name="pss_eu_display">%1$s / %2$s EU</string>
+
+    <string name="me_turn_off">Turn off</string>
+    <string name="me_turn_on">Turn on</string>
+    <string name="me_online">Energy Usage: %1$s EU/t</string>
+    <string name="me_offline">Offline</string>
+</resources>
