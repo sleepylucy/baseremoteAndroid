@@ -13,10 +13,10 @@
 
     <string name="me_turn_off">Turn off</string>
     <string name="me_turn_on">Turn on</string>
-    <string name="me_online">Energy Usage: %1$s EU/t</string>
+    <string name="me_online">Energy Usage: %1$d EU/t</string>
     <string name="me_offline">Offline</string>
 
     <string name="url">http://sleepylucy.sytes.net:9876</string>
     <string name="url_me">/meStatus</string>
-    <string name="url_pss">pssStatus</string>
+    <string name="url_pss">/pssStatus</string>
 </resources>

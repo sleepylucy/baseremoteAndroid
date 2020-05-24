@@ -16,8 +16,16 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.lucy.baseremote.enums.MELocation
+import com.lucy.baseremote.enums.PowerPackLocation
+import com.lucy.baseremote.objects.MeSystem
+import com.lucy.baseremote.objects.PowerPack
 import java.text.NumberFormat
 import java.util.*
+import kotlin.Int as Int1
+import kotlin.Long as Long
 
 class DashboardFragment: Fragment() {
     companion object {
@@ -26,32 +34,29 @@ class DashboardFragment: Fragment() {
         }
     }
 
-    lateinit var pssProgress: ProgressBar
-    lateinit var pssPercentage: TextView
-    lateinit var pssChange: TextView
-    lateinit var pssMaintenance: TextView
-    lateinit var pssEUdisplay: TextView
+    private lateinit var pssProgress: ProgressBar
+    private lateinit var pssPercentage: TextView
+    private lateinit var pssChange: TextView
+    private lateinit var pssMaintenance: TextView
+    private lateinit var pssEUdisplay: TextView
 
-    lateinit var meInfo: TextView
-    lateinit var meToggleButton: Button
+    private lateinit var meInfo: TextView
+    private lateinit var meToggleButton: Button
 
-    var meStatus = true
-    var storage: Long = 0
-    var storageI = 0
-    var storageHist = arrayOf(0L, 0L, 0L, 0L, 0L)
+    private var meStatus = true
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
         // init views
-        pssProgress = view!!.findViewById(R.id.pssProgressBar)
-        pssPercentage = view!!.findViewById(R.id.pssPercentage)
-        pssChange = view!!.findViewById(R.id.pssChangeText)
-        pssMaintenance = view!!.findViewById(R.id.pssMaintenanceIndicator)
-        pssEUdisplay = view!!.findViewById(R.id.pssEUdisplay)
+        pssProgress = view.findViewById(R.id.pssProgressBar)
+        pssPercentage = view.findViewById(R.id.pssPercentage)
+        pssChange = view.findViewById(R.id.pssChangeText)
+        pssMaintenance = view.findViewById(R.id.pssMaintenanceIndicator)
+        pssEUdisplay = view.findViewById(R.id.pssEUdisplay)
 
-        meInfo = view!!.findViewById(R.id.meInfo)
-        meToggleButton = view!!.findViewById(R.id.meToggleButton)
+        meInfo = view.findViewById(R.id.meInfo)
+        meToggleButton = view.findViewById(R.id.meToggleButton)
         meToggleButton.setOnClickListener {
             toggleME()
         }
@@ -88,63 +93,52 @@ class DashboardFragment: Fragment() {
     }
 
     fun updatePssUi(serverResponse: String) {
-        val components = serverResponse.split("/")
+        println(serverResponse)
+        val powerPackListType = object: TypeToken<MutableMap<PowerPackLocation, PowerPack>> () {}.type
+        val powerPacks: MutableMap<PowerPackLocation, PowerPack> = Gson().fromJson(serverResponse, powerPackListType)
+        val mountainPack = powerPacks[PowerPackLocation.OldBase] ?: return
 
-        val oldStorage = storage
-        storage = components[0].toLong()
-        val capacity = components[1].toLong()
-        val maintenance = components[2] == "true"
-
-        storageHist[storageI] = storage - oldStorage
-        storageI++
-        if (storageI >= 5) { storageI = 0 }
-
-        var change: Long = 0
-        for (i in storageHist) { change += i }
-        change /= storageHist.size
-        change /= 20
-        if (change >= 0) {
-            pssChange.setTextColor(resources.getColor(R.color.green))
-            pssChange.text = getString(R.string.pss_change, "+", change)
+        if (mountainPack.change >= 0) {
+            pssChange.setTextColor(resources.getColor(R.color.green, null))
+            pssChange.text = getString(R.string.pss_change, "+", mountainPack.change)
         } else {
-            pssChange.setTextColor(resources.getColor(R.color.red))
-            pssChange.text = getString(R.string.pss_change, "-", change)
+            pssChange.setTextColor(resources.getColor(R.color.red, null))
+            pssChange.text = getString(R.string.pss_change, "-", mountainPack.change)
         }
 
-        if (maintenance) {
-            pssProgress.progressDrawable.setColorFilter(resources.getColor(R.color.red), PorterDuff.Mode.SRC_IN)
-            pssMaintenance.setTextColor(resources.getColor(R.color.red))
+        if (mountainPack.maintenance) {
+            pssProgress.progressDrawable.setColorFilter(resources.getColor(R.color.red, null), PorterDuff.Mode.SRC_IN)
+            pssMaintenance.setTextColor(resources.getColor(R.color.red, null))
             pssMaintenance.setText(R.string.pss_issues)
         } else {
-            pssProgress.progressDrawable.setColorFilter(resources.getColor(R.color.green), PorterDuff.Mode.SRC_IN)
-            pssMaintenance.setTextColor(resources.getColor(R.color.green))
+            pssProgress.progressDrawable.setColorFilter(resources.getColor(R.color.green, null), PorterDuff.Mode.SRC_IN)
+            pssMaintenance.setTextColor(resources.getColor(R.color.green, null))
             pssMaintenance.setText(R.string.pss_no_issues)
         }
 
-        val percentage = storage.toFloat() / capacity.toFloat()
+        val percentage = mountainPack.stored.toFloat() / mountainPack.capacity.toFloat()
         Log.wtf("percentage", percentage.toString())
         pssProgress.progress = (percentage * 100).toInt()
         pssPercentage.text = getString(R.string.pss_percent, (percentage * 100).toInt())
-        val storageString = NumberFormat.getNumberInstance(Locale.GERMAN).format(storage)
-        val capacityString = NumberFormat.getNumberInstance(Locale.GERMAN).format(capacity)
+        val storageString = NumberFormat.getNumberInstance(Locale.GERMAN).format(mountainPack.stored)
+        val capacityString = NumberFormat.getNumberInstance(Locale.GERMAN).format(mountainPack.capacity)
         pssEUdisplay.text = getString(R.string.pss_eu_display, storageString, capacityString)
     }
 
     fun updateMeUi(serverResponse: String) {
-        val components = serverResponse.split("/")
+        val meListType = object: TypeToken<MutableMap<MELocation, MeSystem>> () {}.type
+        val meSystems: MutableMap<MELocation, MeSystem> = Gson().fromJson(serverResponse, meListType)
+        val meSystem = meSystems[MELocation.OldBase] ?: return
 
-        meStatus = components[0] == "true"
-        val euUsage = components[1]
+        if (meSystem.active) {
+            meInfo.setTextColor(resources.getColor(R.color.white, null))
+            meToggleButton.setTextColor(resources.getColor(R.color.red, null))
 
-        if (meStatus) {
-            meInfo.setTextColor(resources.getColor(R.color.white))
-            meToggleButton.setTextColor(resources.getColor(R.color.red))
-
-            meInfo.text = getString(R.string.me_online, euUsage)
+            meInfo.text = getString(R.string.me_online, meSystem.powerConsumption)
             meToggleButton.text = getString(R.string.me_turn_off)
         } else {
-            meInfo.setTextColor(resources.getColor(R.color.red))
-            meToggleButton.setTextColor(resources.getColor(R.color.green))
+            meInfo.setTextColor(resources.getColor(R.color.red, null))
+            meToggleButton.setTextColor(resources.getColor(R.color.green, null))
 
             meInfo.text = getString(R.string.me_offline)
             meToggleButton.text = getString(R.string.me_turn_on)
@@ -170,6 +164,4 @@ class DashboardFragment: Fragment() {
             Response.ErrorListener { error -> Log.e("toggleMe", error.message) })
         queue.add(request)
     }
-
-
 }
