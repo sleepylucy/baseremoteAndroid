@@ -8,8 +8,11 @@
     <string name="pss_no_issues">No issues</string>
     <string name="pss_issues">Has Maintenance Issues</string>
     <string name="pss_change">%1$s %2$d EU/t</string>
-    <string name="pss_percent">%1$d %%</string>
+    <string name="pss_percent">%1$.1f %%</string>
     <string name="pss_eu_display">%1$s / %2$s EU</string>
+
+    <string name="eu_production">%d EU/t</string>
+    <string name="eu_production_placeholder">49152 EU/t</string>
 
     <string name="me_turn_off">Turn off</string>
     <string name="me_turn_on">Turn on</string>
@@ -19,4 +22,15 @@
     <string name="url">http://sleepylucy.sytes.net:9876</string>
     <string name="url_me">/meStatus</string>
     <string name="url_pss">/pssStatus</string>
+    <string name="url_power">/powerStatus</string>
+    <string name="heading_storage">Storage</string>
+    <string name="heading_mountain">Mountain</string>
+    <string name="heading_tower">Tower</string>
+    <string name="heading_chem">Chem Lab</string>
+    <string name="heading_production">Production</string>
+    <string name="title_power">Power</string>
+    <string name="heading_dam">Dam</string>
+    <string name="total_production">Total Production:</string>
+    <string name="heading_chem_solars">Chem Solars</string>
+    <string name="heading_mountain_wind">Mountain Wind</string>
 </resources>

@@ -45,6 +45,8 @@ class DashboardFragment: Fragment() {
 
     private var meStatus = true
 
+    private var isStopped = false
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
@@ -65,6 +67,7 @@ class DashboardFragment: Fragment() {
         val mainHandler = Handler(Looper.getMainLooper())
         mainHandler.post(object: Runnable {
             override fun run() {
+                if (isStopped) return
                 updateUI()
                 mainHandler.postDelayed(this, 1000)
             }
@@ -73,7 +76,13 @@ class DashboardFragment: Fragment() {
         return view
     }
 
+    override fun onStop() {
+        super.onStop()
+        isStopped = true
+    }
+
     fun updateUI() {
+        if (activity == null) return
         val pssURL = getPssURL()
         val meURL = getMeURL()
         val queue = Volley.newRequestQueue(this.context)
@@ -93,6 +102,8 @@ class DashboardFragment: Fragment() {
     }
 
     fun updatePssUi(serverResponse: String) {
+        if (activity == null) return
+
         println(serverResponse)
         val powerPackListType = object: TypeToken<MutableMap<PowerPackLocation, PowerPack>> () {}.type
         val powerPacks: MutableMap<PowerPackLocation, PowerPack> = Gson().fromJson(serverResponse, powerPackListType)
@@ -103,7 +114,7 @@ class DashboardFragment: Fragment() {
             pssChange.text = getString(R.string.pss_change, "+", mountainPack.change)
         } else {
             pssChange.setTextColor(resources.getColor(R.color.red, null))
-            pssChange.text = getString(R.string.pss_change, "-", mountainPack.change)
+            pssChange.text = getString(R.string.pss_change, "", mountainPack.change)
         }
 
         if (mountainPack.maintenance) {
@@ -119,13 +130,15 @@ class DashboardFragment: Fragment() {
         val percentage = mountainPack.stored.toFloat() / mountainPack.capacity.toFloat()
         Log.wtf("percentage", percentage.toString())
         pssProgress.progress = (percentage * 100).toInt()
-        pssPercentage.text = getString(R.string.pss_percent, (percentage * 100).toInt())
+        pssPercentage.text = getString(R.string.pss_percent, percentage * 100)
         val storageString = NumberFormat.getNumberInstance(Locale.GERMAN).format(mountainPack.stored)
         val capacityString = NumberFormat.getNumberInstance(Locale.GERMAN).format(mountainPack.capacity)
         pssEUdisplay.text = getString(R.string.pss_eu_display, storageString, capacityString)
     }
 
     fun updateMeUi(serverResponse: String) {
+        if (activity == null) return
+
         val meListType = object: TypeToken<MutableMap<MELocation, MeSystem>> () {}.type
         val meSystems: MutableMap<MELocation, MeSystem> = Gson().fromJson(serverResponse, meListType)
         val meSystem = meSystems[MELocation.OldBase] ?: return
@@ -146,11 +159,11 @@ class DashboardFragment: Fragment() {
     }
 
     fun getMeURL(): String {
-        return getString(R.string.url) + getString(R.string.url_me)
+        return activity?.getString(R.string.url) + activity?.getString(R.string.url_me)
     }
 
     fun getPssURL(): String {
-        return getString(R.string.url) + getString(R.string.url_pss)
+        return activity?.getString(R.string.url) + activity?.getString(R.string.url_pss)
     }
 
     fun toggleME() {

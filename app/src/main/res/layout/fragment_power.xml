@@ -1,0 +1,1575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/storageHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/heading_storage"
+                android:textSize="40sp"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/storageMountainHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_mountain"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageHeading"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="16dp" />
+
+        <TextView
+                android:id="@+id/storageMountainIssues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pss_no_issues"
+                android:textColor="@color/green"
+                android:textSize="13sp"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintTop_toBottomOf="@id/storageMountainHeading"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+                android:id="@+id/storageMountainProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageMountainIssues"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:progress="50"
+                android:progressTint="@color/green"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
+        <TextView
+                android:id="@+id/storageMountainPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/storageMountainProgress"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="50%"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_medium"/>
+
+        <TextView
+                android:id="@+id/storageMountainChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/storageMountainPercent"
+                app:layout_constraintBottom_toBottomOf="@id/storageMountainPercent"
+                android:layout_marginStart="4dp"
+                android:text="+5212 EU/t"
+                android:textSize="12sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/roboto_regular"/>
+
+        <TextView
+                android:id="@+id/storageMountainDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/storageMountainPercent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="512 / 1024 EU"
+                android:textSize="12sp"
+                android:textColor="@color/textSecondary"/>
+
+        <TextView
+                android:id="@+id/storageTowerHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_tower"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageMountainDetail"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="12dp" />
+
+        <TextView
+                android:id="@+id/storageTowerIssues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pss_no_issues"
+                android:textColor="@color/green"
+                android:textSize="13sp"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintTop_toBottomOf="@id/storageTowerHeading"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+                android:id="@+id/storageTowerProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageTowerIssues"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:progress="50"
+                android:progressTint="@color/green"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
+        <TextView
+                android:id="@+id/storageTowerPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/storageTowerProgress"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="50%"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_medium"/>
+
+        <TextView
+                android:id="@+id/storageTowerChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/storageTowerPercent"
+                app:layout_constraintBottom_toBottomOf="@id/storageTowerPercent"
+                android:layout_marginStart="4dp"
+                android:text="+5212 EU/t"
+                android:textSize="12sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/roboto_regular"/>
+
+        <TextView
+                android:id="@+id/storageTowerDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/storageTowerPercent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="512 / 1024 EU"
+                android:textSize="12sp"
+                android:textColor="@color/textSecondary"/>
+
+        <TextView
+                android:id="@+id/storageChemHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_chem"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageTowerDetail"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="12dp" />
+
+        <TextView
+                android:id="@+id/storageChemIssues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pss_no_issues"
+                android:textColor="@color/green"
+                android:textSize="13sp"
+                android:fontFamily="@font/roboto_regular"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                app:layout_constraintTop_toBottomOf="@id/storageChemHeading"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        <ProgressBar
+                android:id="@+id/storageChemProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageChemIssues"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:progress="50"
+                android:progressTint="@color/green"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
+        <TextView
+                android:id="@+id/storageChemPercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/storageChemProgress"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="50%"
+                android:textSize="14sp"
+                android:fontFamily="@font/roboto_medium"/>
+
+        <TextView
+                android:id="@+id/storageChemChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/storageChemPercent"
+                app:layout_constraintBottom_toBottomOf="@id/storageChemPercent"
+                android:layout_marginStart="4dp"
+                android:text="+5212 EU/t"
+                android:textSize="12sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/roboto_regular"/>
+
+        <TextView
+                android:id="@+id/storageChemDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/storageChemPercent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:text="512 / 1024 EU"
+                android:textSize="12sp"
+                android:textColor="@color/textSecondary"/>
+
+        <!--============-->
+        <!-- PRODUCTION -->
+        <!--============-->
+
+        <!-- DAM -->
+        <TextView
+                android:id="@+id/productionHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="32dp"
+                android:text="@string/heading_production"
+                android:textSize="40sp"
+                android:fontFamily="@font/roboto_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/storageChemDetail" />
+
+        <TextView
+                android:id="@+id/prodDamHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_dam"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/productionHeading"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="10dp" />
+        <TextView
+                android:id="@+id/prodDamProd1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_production"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prodDamHeading"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="4dp"/>
+        <TextView
+                android:id="@+id/damProduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eu_production_placeholder"
+                android:textSize="15sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toEndOf="@id/prodDamProd1"
+                app:layout_constraintBottom_toBottomOf="@id/prodDamProd1"
+                android:layout_marginStart="4dp" />
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/damCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/prodDamProd1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="4dp">
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine11const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine11image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine11linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine11image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine11image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine11image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine11heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 11"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine11prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine12const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine12image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine12linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine12image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine12image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine12image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine12heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 12"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine12prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine13const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine13image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine13linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine13image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine13image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine13image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine13heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 13"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine13prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine14const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine11const"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine14image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine14linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine14image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine14image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine14image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine14heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 14"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/turbine14image" />
+
+                        <TextView
+                                android:id="@+id/turbine14prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine15const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine12const"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine15image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine15linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine15image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine15image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine15image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine15heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 15"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/turbine11image" />
+
+                        <TextView
+                                android:id="@+id/turbine15prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine16const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        app:layout_constraintTop_toBottomOf="@id/turbine13const"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine16image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine16linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine16image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine16image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine16image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine16heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 16"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/turbine12image" />
+
+                        <TextView
+                                android:id="@+id/turbine16prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine17const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine14const"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine17image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine17linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine17image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine17image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine17image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine17heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 17"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/turbine17image" />
+
+                        <TextView
+                                android:id="@+id/turbine17prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine21const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine17const"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine21image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine21linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine21image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine21image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine21image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine21heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 21"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine21prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine22const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine17const"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine22image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine22linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine22image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine22image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine22image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine22heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 22"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine22prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine23const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine17const"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine23image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine23linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine23image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine23image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine23image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine23heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 23"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine23prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine24const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine21const"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine24image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine24linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine24image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine24image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine24image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine24heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 24"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/turbine24image" />
+
+                        <TextView
+                                android:id="@+id/turbine24prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine25const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/turbine22const"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine25image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine25linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine25image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine25image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine25image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine25heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 25"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine25prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine26const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        app:layout_constraintTop_toBottomOf="@id/turbine23const"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine26image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine26linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine26image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine26image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine26image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine26heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 26"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/turbine26prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/turbine27const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/turbine24const"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/turbine27image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/turbine27linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/turbine27image"
+                            app:layout_constraintTop_toTopOf="@+id/turbine27image"
+                            app:layout_constraintBottom_toBottomOf="@id/turbine27image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/turbine27heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 27"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/turbine27image" />
+
+                        <TextView
+                                android:id="@+id/turbine27prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <!-- Chem Solars -->
+        <TextView
+                android:id="@+id/prodChemHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_chem_solars"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/damCard"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="24dp" />
+        <TextView
+                android:id="@+id/prodChemProd1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_production"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prodChemHeading"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="4dp"/>
+        <TextView
+                android:id="@+id/chemProduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eu_production_placeholder"
+                android:textSize="15sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toEndOf="@id/prodChemProd1"
+                app:layout_constraintBottom_toBottomOf="@id/prodChemProd1"
+                android:layout_marginStart="4dp" />
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/chemCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/prodChemProd1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="4dp">
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayN1const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayN1image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayN1linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayN1image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayN1image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayN1image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayN1heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array N-1"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/arrayN1prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayN2const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayN2image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayN2linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayN2image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayN2image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayN2image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayN2heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array N-2"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/arrayN2prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayE1const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayE1image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayE1linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayE1image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayE1image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayE1image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayE1heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array E-1"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/arrayE1prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayE2const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/arrayN1const"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayE2image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayE2linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayE2image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayE2image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayE2image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayE2heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array E-2"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/arrayE2prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayS1const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/arrayN2const"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayS1image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayS1linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayS1image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayS1image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayS1image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayS1heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array S-1"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/arrayS1prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayS2const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                        app:layout_constraintTop_toBottomOf="@id/arrayE1const"
+                        app:layout_constraintEnd_toEndOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayS2image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayS2linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayS2image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayS2image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayS2image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayS2heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array S-2"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/arrayS2prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayW1const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/arrayE2const"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayW1image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayW1linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayW1image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayW1image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayW1image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayW1heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array W-1"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/arrayW1image" />
+
+                        <TextView
+                                android:id="@+id/arrayW1prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                        android:id="@+id/arrayW2const"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/arrayS1const"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/arrayW2image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_sun"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/arrayW2linear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/arrayW2image"
+                            app:layout_constraintTop_toTopOf="@+id/arrayW2image"
+                            app:layout_constraintBottom_toBottomOf="@id/arrayW2image"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/arrayW2heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Array W-2"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold"
+                                app:layout_constraintStart_toEndOf="@id/arrayW2image" />
+
+                        <TextView
+                                android:id="@+id/arrayW2prod"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+        <!-- Mountain Wind -->
+        <TextView
+                android:id="@+id/prodWindHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_mountain_wind"
+                android:textSize="20sp"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chemCard"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="24dp" />
+        <TextView
+                android:id="@+id/prodWindProd1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_production"
+                android:textSize="15sp"
+                android:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/prodWindHeading"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="4dp"/>
+        <TextView
+                android:id="@+id/windProduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eu_production_placeholder"
+                android:textSize="15sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/roboto_medium"
+                app:layout_constraintStart_toEndOf="@id/prodWindProd1"
+                app:layout_constraintBottom_toBottomOf="@id/prodWindProd1"
+                android:layout_marginStart="4dp" />
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/windCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/prodWindProd1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:cardCornerRadius="4dp">
+
+            <android.support.constraint.ConstraintLayout
+                        android:id="@+id/windTurbineConst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginBottom="16dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" >
+
+                    <android.support.v7.widget.AppCompatImageView
+                            android:id="@+id/windTurbineImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_wind_turbine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <LinearLayout
+                            android:id="@+id/windTurbineLinear"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toEndOf="@id/windTurbineImage"
+                            app:layout_constraintTop_toTopOf="@+id/windTurbineImage"
+                            app:layout_constraintBottom_toBottomOf="@id/windTurbineImage"
+                            android:layout_marginStart="4dp">
+
+                        <TextView
+                                android:id="@+id/windTurbineHeading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Turbine 1"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_bold" />
+
+                        <TextView
+                                android:id="@+id/windTurbineProd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/eu_production_placeholder"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/roboto_regular"/>
+
+                    </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

@@ -16,3 +16,7 @@ enum class PowerGenLocation {
 
     MountainWind;
 }
+
+enum class PowerGenType {
+    Hydro, Wind, Solar
+}
